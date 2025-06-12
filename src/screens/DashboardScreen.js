@@ -1,4 +1,3 @@
-// src/screens/DashboardScreen.js
 import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
@@ -8,7 +7,7 @@ const { width } = Dimensions.get('window');
 
 const DashboardScreen = ({ navigation }) => {
   const { signOut } = useContext(AuthContext);
-  const [userName, setUserName] = useState('Lucas'); // Valor padrão para exibição
+  const [userName, setUserName] = useState('Lucas'); 
 
   useEffect(() => {
     const loadUserName = async () => {
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   lastWorkoutContent: {
-    // Estilos para o conteúdo do último treino
+  
   },
   workoutName: {
     fontSize: 18,
