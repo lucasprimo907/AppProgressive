@@ -1,59 +1,57 @@
-// src/screens/WorkoutHistoryScreen.js
-import React, { useState, useEffect, useCallback } from 'react'; // <--- Adicionar useState, useEffect, useCallback
-import { View, Text, StyleSheet, SafeAreaView, Dimensions, ScrollView, TouchableOpacity, RefreshControl } from 'react-native'; // <--- Adicionar RefreshControl
-import AsyncStorage from '@react-native-async-storage/async-storage'; // <--- IMPORTANTE: Importar AsyncStorage aqui
-import { useFocusEffect } from '@react-navigation/native'; // <--- IMPORTANTE: Importar useFocusEffect aqui
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, Dimensions, ScrollView, TouchableOpacity, RefreshControl } from 'react-native'; l
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import { useFocusEffect } from '@react-navigation/native'; 
 
 const { width } = Dimensions.get('window');
 
 const WorkoutHistoryScreen = () => {
-  const [workouts, setWorkouts] = useState([]); // <--- Estado para armazenar os treinos carregados
-  const [refreshing, setRefreshing] = useState(false); // Estado para o Pull-to-Refresh
+  const [workouts, setWorkouts] = useState([]); 
+  const [refreshing, setRefreshing] = useState(false); 
 
-  const loadWorkouts = useCallback(async () => { // <--- Função useCallback para carregar treinos
+  const loadWorkouts = useCallback(async () => { 
     try {
-      setRefreshing(true); // Inicia o indicador de refresh
+      setRefreshing(true); 
       const storedWorkoutsJson = await AsyncStorage.getItem('workouts');
       if (storedWorkoutsJson) {
-        setWorkouts(JSON.parse(storedWorkoutsJson)); // Atualiza o estado com os treinos salvos
+        setWorkouts(JSON.parse(storedWorkoutsJson)); 
       } else {
-        setWorkouts([]); // Se não houver treinos, define como array vazio
+        setWorkouts([]); 
       }
     } catch (error) {
       console.error('Erro ao carregar treinos:', error);
       Toast.show({ type: 'error', text1: 'Erro ao Carregar Treinos', text2: 'Não foi possível carregar seu histórico.' });
     } finally {
-      setRefreshing(false); // Finaliza o indicador de refresh
+      setRefreshing(false); 
     }
-  }, []); // Dependências vazias: a função não precisa ser recriada a menos que suas dependências mudem
+  }, []); 
 
-  // Use useFocusEffect para carregar os treinos sempre que a tela for focada
-  // (útil quando você volta para esta tela de outra, como após salvar um treino)
+
   useFocusEffect(
     useCallback(() => {
-      loadWorkouts(); // Chama a função para carregar treinos
+      loadWorkouts(); 
       return () => {
-        // Opcional: fazer algo quando a tela perde o foco (ex: limpar estados)
+        
       };
-    }, [loadWorkouts]) // Depende de loadWorkouts
+    }, [loadWorkouts]) 
   );
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView
         contentContainerStyle={styles.scrollViewContent}
-        refreshControl={ // Adiciona funcionalidade de Pull-to-Refresh
+        refreshControl={
           <RefreshControl
             refreshing={refreshing}
-            onRefresh={loadWorkouts} // Chama loadWorkouts quando o usuário "puxa para atualizar"
-            tintColor="#32CD32" // Cor do indicador de carregamento
+            onRefresh={loadWorkouts} 
+            tintColor="#32CD32" 
           />
         }
       >
         <View style={styles.container}>
           <Text style={styles.title}>Histórico de Treinos</Text>
 
-          {workouts.length > 0 ? ( // Renderiza treinos se houver algum
+          {workouts.length > 0 ? (
             workouts.map((workout) => (
               <View key={workout.id} style={styles.workoutCard}>
                 <Text style={styles.workoutDate}>{workout.date}</Text>
@@ -65,13 +63,13 @@ const WorkoutHistoryScreen = () => {
                     </Text>
                   ))}
                 </View>
-                {/* Você pode adicionar um botão para ver detalhes, editar ou excluir aqui */}
+                {/* adicionar um botão para ver detalhes, editar ou excluir aqui */}
                 <TouchableOpacity style={styles.viewDetailsButton}>
                   <Text style={styles.viewDetailsButtonText}>Ver Detalhes</Text>
                 </TouchableOpacity>
               </View>
             ))
-          ) : ( // Mensagem se não houver treinos
+          ) : ( 
             <Text style={styles.noWorkoutsText}>Nenhum treino registrado ainda. Comece a criar um!</Text>
           )}
 
