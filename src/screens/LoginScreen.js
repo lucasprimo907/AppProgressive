@@ -1,4 +1,4 @@
-// src/screens/LoginScreen.js
+
 import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Dimensions, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
