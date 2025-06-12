@@ -6,7 +6,7 @@ import CreateWorkoutScreen from '../screens/CreateWorkoutScreen';
 import WorkoutHistoryScreen from '../screens/WorkoutHistoryScreen';
 import ProgressScreen from '../screens/ProgressScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import { Platform } from 'react-native'; // <<--- CERTIFIQUE-SE QUE ESTA LINHA ESTÁ PRESENTE
+import { Platform } from 'react-native'; 
 
 const Tab = createBottomTabNavigator();
 
