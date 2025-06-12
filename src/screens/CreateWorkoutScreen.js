@@ -1,4 +1,3 @@
-// src/screens/CreateWorkoutScreen.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Dimensions, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import Toast from 'react-native-toast-message';
@@ -110,7 +109,7 @@ const CreateWorkoutScreen = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#000', // Fundo preto
+    backgroundColor: '#000', 
   },
   scrollViewContent: {
     flexGrow: 1,
@@ -126,11 +125,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: width * 0.08,
     fontWeight: 'bold',
-    color: '#32CD32', // Cor verde do título
+    color: '#32CD32', 
     marginBottom: 20,
   },
   sectionCard: {
-    backgroundColor: '#1a1a1a', // Cor de fundo do card
+    backgroundColor: '#1a1a1a', 
     borderRadius: 10,
     padding: 15,
     width: '95%',
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   smallInput: {
-    width: '32%', // Aproximadamente um terço da largura
+    width: '32%', 
     height: 45,
     backgroundColor: '#333',
     borderRadius: 8,
@@ -222,7 +221,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   removeButton: {
-    backgroundColor: '#FF6347', // Tomate
+    backgroundColor: '#FF6347', 
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 5,
