@@ -1,4 +1,3 @@
-// src/screens/WorkoutDetailScreen.js
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
