@@ -1,4 +1,3 @@
-// src/screens/RegisterScreen.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Dimensions, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
