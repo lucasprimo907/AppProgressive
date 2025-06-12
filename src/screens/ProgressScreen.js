@@ -1,8 +1,5 @@
-// src/screens/ProgressScreen.js
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Dimensions, ScrollView } from 'react-native';
-// Você pode adicionar bibliotecas de gráficos aqui, como 'react-native-chart-kit'
-// import { LineChart } from 'react-native-chart-kit'; // Exemplo
 
 const { width } = Dimensions.get('window');
 
